@@ -13,7 +13,7 @@ f <- std_conc*Dil*Ext
 library(tidyverse)
 
 # import csv
-file_name <- "example"
+file_name <- "Catechins_example"
 csv_name <- paste0(file_name, ".csv")
 rawdata <- read.csv(csv_name)
 
