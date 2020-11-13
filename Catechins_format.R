@@ -18,14 +18,14 @@ csv_name <- paste0(file_name, ".csv")
 rawdata <- read.csv(csv_name)
 
 #colname
-names(rawdata)[c(1,2,3,11)] <- c("label", "n", "C", "DW")
+names(rawdata)[c(1,2,ncol(rawdata))] <- c("label", "n", "DW")
 
 # show std data
 std_area <-
   rawdata %>%
-  select(1:10) %>%
+  select(1:(ncol(rawdata)-1)) %>%
   filter(label == "STD") %>%
-  select(3:10)
+  select(3:(ncol(rawdata)-1))
 
 boxplot(std_area)
 
@@ -33,9 +33,9 @@ boxplot(std_area)
 # Calculation std_area mean
 std_mean <-
   rawdata %>%
-  select(1:10) %>%
+  select(1:(ncol(rawdata)-1)) %>%
   filter(label == "STD") %>%
-  gather(key = Catechins, value = area, C:CG, factor_key = T) %>%
+  gather(key = Catechins, value = area, 3:(ncol(rawdata)-1), factor_key = T) %>%
   group_by(Catechins) %>%
   summarise(Mean = mean(area)) %>%
   spread(key = Catechins, value = Mean)
@@ -47,15 +47,21 @@ print(std_mean)
 # Calculation sample_conc(mg/g)
 sample <-
   rawdata %>%
-  filter(label == "UNK") %>%
-  mutate("C (mg/g DW)" = (C*f) / (std_mean$C*DW*0.001)) %>%
-  mutate("EC (mg/g DW)" = (EC*f) / (std_mean$EC*DW*0.001)) %>%
-  mutate("GC (mg/g DW)" = (GC*f) / (std_mean$GC*DW*0.001)) %>%
-  mutate("EGC (mg/g DW)" = (EGC*f) / (std_mean$EGC*DW*0.001)) %>%
-  mutate("EGCG (mg/g DW)" = (EGCG*f) / (std_mean$EGCG*DW*0.001)) %>%
-  mutate("Caf. (mg/g DW)" = (Caf.*f) / (std_mean$Caf.*DW*0.001)) %>%
-  mutate("ECG (mg/g DW)" = (ECG*f) / (std_mean$ECG*DW*0.001)) %>%
-  mutate("CG (mg/g DW)" = (CG*f) / (std_mean$CG*DW*0.001))
+  filter(label == "UNK")
+
+for (i in 3:(ncol(sample)-1)) {
+  item <- colnames(sample[i])
+  #print(item)
+  col <- paste0(item, "(mg/g DW)")
+  #print(col)
+  std <- as.numeric(std_mean[item])
+  #print(std)
+  
+  #print(sample[,i])
+  sample <-
+    sample %>%
+    mutate(!!col := (sample[,i]*f) / (std*DW*0.001))
+}
 
 # Export as CSV
 output_name <- paste0(file_name, "_Result", ".csv")

@@ -1,11 +1,20 @@
 # Data frame calculation format
 
-## Catechins_format
-### For 7 types of catechins and caffeine.
-C(+), EC, GC, EGC, EGCG, Caf., ECG, CG
-
 Since complicated copy and paste is not required, human error prevention and quick calculation are possible.  
-Create a csv file in the following format
+煩雑なコピー＆ペーストが不要なため，人為的ミスの防止と迅速な計算が可能です．  
+
+## Catechins_format
+### For catechins and caffeine.
+
+Create a csv file in the following format  
+以下の形式のcsvファイルを作成して下さい．  
+
+- 必須条件
+  - 1列目が"STD"あるいは"UNK"であること  
+  - 2列目が"STD", "UNK"それぞれの通し番号であること
+  - 3列目以降には定量に使用する値が入っていること
+  - 最終列が秤量値であること
+
 
 | label | n | C         | EC        | GC        | EGC       | EGCG      | Caf.      | ECG       | CG        | DW           |
 |-------|---|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|--------------|
@@ -20,8 +29,8 @@ Create a csv file in the following format
 ### For 9 types of FAAs.  
 Asp, Glu, Asn, Ser, Gln, Arg, Ala, Thea, GABA
 
-Since complicated copy and paste is not required, human error prevention and quick calculation are possible.  
 Create a csv file in the following format
+以下の形式のcsvファイルを作成して下さい．  
 
 | label | n | Asp             | Glu             | Asn             | Ser             | Gln             | IS              | Arg             | Ala             | Thea            | GABA            | DW           |
 |-------|---|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|--------------|
