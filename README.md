@@ -32,6 +32,12 @@ Asp, Glu, Asn, Ser, Gln, Arg, Ala, Thea, GABA
 Create a csv file in the following format
 以下の形式のcsvファイルを作成して下さい．  
 
+- 必須条件
+  - 1列目が"STD"あるいは"UNK"であること  
+  - 2列目が"STD", "UNK"それぞれの通し番号であること
+  - 3列目以降には定量に使用する値が入っていること
+  - 最終列が秤量値であること
+
 | label | n | Asp             | Glu             | Asn             | Ser             | Gln             | IS              | Arg             | Ala             | Thea            | GABA            | DW           |
 |-------|---|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|--------------|
 | STD   | 1 | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio |              |

@@ -7,13 +7,16 @@ Dil <- 8 #dilution
 Ext <- 0.005 #extraction Vol.(L)
 #####################################
 f <- std_conc*Dil*Ext
-#####################################
 
 ### package ###
 library(tidyverse)
 
 # import csv
+#####################################
+# file_nameに拡張子なしのファイル名を入力
 file_name <- "Catechins_example"
+#####################################
+
 csv_name <- paste0(file_name, ".csv")
 rawdata <- read.csv(csv_name)
 
@@ -65,4 +68,4 @@ for (i in 3:(ncol(sample)-1)) {
 
 # Export as CSV
 output_name <- paste0(file_name, "_Result", ".csv")
-write.csv(sample, output_name, quote=F)
+write.csv(sample, output_name, quote=F, row.names=F)
