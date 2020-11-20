@@ -26,8 +26,7 @@ Create a csv file in the following format
 | UNK   | 3 | peak area | peak area | peak area | peak area | peak area | peak area | peak area | peak area | start weight |
 
 ## FAAs_format
-### For 9 types of FAAs.  
-Asp, Glu, Asn, Ser, Gln, Arg, Ala, Thea, GABA
+### For FAAs.
 
 Create a csv file in the following format
 以下の形式のcsvファイルを作成して下さい．  
