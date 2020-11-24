@@ -28,7 +28,7 @@ Create a csv file in the following format
 ## FAAs_format
 ### For FAAs.
 
-Create a csv file in the following format
+Create a csv file in the following format  
 以下の形式のcsvファイルを作成して下さい．  
 
 - 必須条件
