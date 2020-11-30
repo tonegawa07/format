@@ -3,7 +3,12 @@
 Since complicated copy and paste is not required, human error prevention and quick calculation are possible.  
 煩雑なコピー＆ペーストが不要なため，人為的ミスの防止と迅速な計算が可能です．  
 
-## Catechins_format
+```R
+cal_hplc(std_conc = "std濃度 (ppm)", Dil = "希釈倍率", Ext_vol = "抽出時溶媒量(mL)", file_name = "用意したcsvファイル名 (拡張子除く)")
+```
+
+
+## HPLC_format
 ### For catechins and caffeine.
 
 Create a csv file in the following format  
@@ -25,7 +30,6 @@ Create a csv file in the following format
 | UNK   | 2 | peak area | peak area | peak area | peak area | peak area | peak area | peak area | peak area | start weight |
 | UNK   | 3 | peak area | peak area | peak area | peak area | peak area | peak area | peak area | peak area | start weight |
 
-## FAAs_format
 ### For FAAs.
 
 Create a csv file in the following format  
