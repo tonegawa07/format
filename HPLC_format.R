@@ -1,5 +1,5 @@
 #####################################
-# Catechins format 
+# HPLC_format 
 #####################################
 cal_hplc = function(std_conc, Dil, Ext_vol, file_name){
   # Parameters
