@@ -15,13 +15,13 @@ cal_hplc = function(std_conc, Dil, Ext_vol, file_name){
   rawdata <- read.csv(paste0(file_name, ".csv"))
   
   # colname
-  names(rawdata)[c(1,ncol(rawdata))] <- c("label", "DW")
+  names(rawdata)[c(1,ncol(rawdata))] <- c("ID", "DW")
   
   # show std data
   std_area <-
     rawdata %>%
     select(1:(ncol(rawdata)-1)) %>%
-    filter(grepl("STD", label)) %>%
+    filter(grepl("STD", ID)) %>%
     #filter(label == "STD") %>%
     select(2:(ncol(rawdata)-1))
   
@@ -32,7 +32,7 @@ cal_hplc = function(std_conc, Dil, Ext_vol, file_name){
   std_mean <-
     rawdata %>%
     select(1:(ncol(rawdata)-1)) %>%
-    filter(grepl("STD", label)) %>%
+    filter(grepl("STD", ID)) %>%
     #filter(label == "STD") %>%
     gather(key = key, value = value, 2:(ncol(rawdata)-1), factor_key = T) %>%
     group_by(key) %>%
@@ -46,7 +46,7 @@ cal_hplc = function(std_conc, Dil, Ext_vol, file_name){
   # Calculation sample_conc(mg/g)
   sample <-
     rawdata %>%
-    filter(grepl("UNK", label))
+    filter(grepl("UNK", ID))
     #filter(label == "UNK")
   
   for (i in 2:(ncol(sample)-1)) {
