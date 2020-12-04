@@ -68,5 +68,5 @@ cal_hplc = function(std_conc, Dil, Ext_vol, file_name){
   write.csv(sample, output_name, quote=F, row.names=F)
 }
 
-cal_hplc(std_conc = 10, Dil = 8, Ext_vol = 5, file_name = "Catechins_example_grepl")
+cal_hplc(std_conc = 10, Dil = 8, Ext_vol = 5, file_name = "Catechins_example")
 cal_hplc(std_conc = 10, Dil = 1.25, Ext_vol = 5, file_name = "FAAs_example")
