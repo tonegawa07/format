@@ -14,14 +14,14 @@ cal_hplc = function(std_conc, Dil, Ext_vol, file_name){
   
   rawdata=
     read.csv(paste0(file_name, ".csv")) %>%
-    dplyr::mutate_all(~gsub(.,pattern="-----",replacement = 0)) %>%
+    dplyr::mutate_all(~gsub(.,pattern="-----",replacement = NA)) %>%
     dplyr::mutate_all(~gsub(.,pattern=",",replacement = ""))
   
   for (i in 2:ncol(rawdata)) {
     rawdata[,i]<-as.numeric(rawdata[,i])
   }
   
-  rawdata[is.na(rawdata)]=0
+  #rawdata[is.na(rawdata)]=0
   
   # colname
   names(rawdata)[c(1,ncol(rawdata))] <- c("ID", "DW")
